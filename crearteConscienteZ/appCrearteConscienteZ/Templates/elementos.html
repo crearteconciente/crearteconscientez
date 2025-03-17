@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+   Elige tu Elemento
+{% endblock %}
+
+{% block content %}
+    <div class="element-selection">
+        <h1>Elige tu elemento</h1>
+
+        <div class="elements-container" id="elements-container">
+            <div class="element" data-url="{% url 'elemento_tierra' %}">
+                <img src="{% static 'img/tierra.jpg' %}" alt="Tierra">
+            </div>
+
+            <div class="element" data-url="{% url 'elemento_agua' %}">
+                <img src="{% static 'img/agua.jpg' %}" alt="Agua">
+            </div>
+
+            <div class="element" data-url="{% url 'elemento_fuego' %}">
+                <img src="{% static 'img/fuego.jpg' %}" alt="Fuego">
+            </div>
+
+            <div class="element" data-url="{% url 'elemento_aire' %}">
+                <img src="{% static 'img/aire.jpg' %}" alt="Aire">
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let container = document.getElementById("elements-container");
+
+        // Hacer que los elementos sean táctiles y deslizables
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        container.addEventListener("mousedown", (e) => {
+            isDown = true;
+            startX = e.pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+        });
+
+        container.addEventListener("mouseleave", () => { isDown = false; });
+        container.addEventListener("mouseup", () => { isDown = false; });
+
+        container.addEventListener("mousemove", (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - container.offsetLeft;
+            const walk = (x - startX) * 2; // Velocidad del desplazamiento
+            container.scrollLeft = scrollLeft - walk;
+        });
+
+        // Hacer que al tocar un elemento, se abra la página
+        document.querySelectorAll(".element").forEach(el => {
+            el.addEventListener("click", () => {
+                window.location.href = el.getAttribute("data-url");
+            });
+        });
+    });
+</script>
+{% endblock %}
+            

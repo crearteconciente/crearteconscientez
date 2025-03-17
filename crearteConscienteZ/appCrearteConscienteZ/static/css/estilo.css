@@ -1,0 +1,363 @@
+/* 🔹 CONFIGURACIÓN GENERAL */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('/static/img/fondo.jpg'); /* Asegúrate de que la ruta sea correcta */
+    background-size: cover; /* Ajusta la imagen para que cubra toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* Hace que el fondo no se mueva */
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 🔹 NAVEGACIÓN */
+.navbar {
+    width: 100%;
+    max-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px; /* Espacio interno */
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semi-transparente */
+    position: fixed; /* Fija la barra arriba */
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+/* 🔹 LOGO */
+.logo img {
+    height: 50px;
+}
+
+/* 🔹 ENLACES DEL MENÚ */
+/* 🔹 BARRA DE NAVEGACIÓN */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 15px 30px;
+    width: 100%;
+    flex-wrap: nowrap; /* Evita que los elementos se envuelvan */
+}
+
+/* 🔹 LOGO */
+.logo img {
+    height: 50px; /* Ajusta el tamaño del logo */
+}
+
+/* 🔹 MENÚ DE NAVEGACIÓN */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px; /* Espacio entre los elementos */
+    margin: 0;
+    padding: 0;
+}
+
+/* 🔹 ELEMENTOS DEL MENÚ */
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap; /* Evita que las palabras se corten */
+    padding: 0px 50px; /* Aumenta el padding */
+    
+
+}
+
+/* 🔹 EFECTO HOVER */
+.nav-links a:hover {
+    color: #FFD700; /* Amarillo dorado al pasar el cursor */
+}
+
+
+/* 🔹 PUERTAS */
+.door {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(90deg, #4d2e1f, #7b4f34, #4d2e1f);
+    border: 5px solid #3b2416;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* 🔹 POSICIONAMIENTO */
+.left {
+    left: 0;
+    transform-origin: left;
+}
+
+.right {
+    right: 0;
+    transform-origin: right;
+}
+
+/* 🔹 ANIMACIÓN DE LAS PUERTAS */
+@keyframes openDoors {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes openDoorsRight {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Aplica la animación */
+.door.left {
+    animation: openDoors 2s ease-in-out forwards;
+}
+
+.door.right {
+    animation: openDoorsRight 2s ease-in-out forwards;
+}
+
+/* 🔹 CONTENIDO PRINCIPAL */
+.content {
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: fadeIn 0.3s ease-in-out forwards 2s; /* Aparece después de la animación */
+}
+
+.content h1 {
+    font-size: 60px; /* Tamaño de la letra del título */
+    font-family: "Arial", sans-serif; /* Tipo de letra */
+}
+
+.content .subtitle {
+    font-size: 30px; /* Tamaño de la letra del subtítulo */
+    font-family: "Verdana", sans-serif; /* Tipo de letra */
+}
+
+
+/* Animación para mostrar el contenido */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* 🔹 BOTÓN PRINCIPAL */
+.start-button {
+    background-color: #ffcc00;
+    color: black;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.start-button:hover {
+    background-color: #ffdd33;
+    transform: scale(1.1);
+}
+
+.element-selection {
+    text-align: center;
+    color: white;
+    margin-top: 50px;
+}
+
+.elements-container {
+    display: flex;
+    overflow-x: auto;  /* Permite deslizar horizontalmente */
+    scroll-snap-type: x mandatory; /* Hace que se alineen al desplazarse */
+    gap: 20px;
+    padding: 20px;
+    white-space: nowrap;
+    width: 100%;
+    scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+}
+
+.elements-container::-webkit-scrollbar {
+    display: none; /* Oculta la barra de desplazamiento en Chrome y Safari */
+}
+
+.element {
+    flex: 0 0 auto;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    scroll-snap-align: center;
+}
+
+.element img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.element:active img {
+    transform: scale(1.1); /* Efecto de clic */
+}
+
+/* Contenedor general para centrar ambas secciones */
+.contenedor-acceso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 30px;
+}
+
+/* Estilos del portal de acceso */
+.portal-de-acceso, .crear-cuenta {
+    background: rgba(0, 0, 0);
+    border: 2px solid cyan;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px cyan, 0 0 30px rgba(0, 255, 255, 0.5);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.portal-de-acceso h1, .crear-cuenta h2 {
+    font-size: 2rem;
+    color: cyan;
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px cyan, 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.portal-de-acceso p, .crear-cuenta p {
+    color: #bbb;
+    font-size: 1rem;
+}
+
+.portal-de-acceso input, .crear-cuenta input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background: transparent;
+    border: 1px solid cyan;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    outline: none;
+    transition: 0.3s;
+}
+
+.portal-de-acceso input:focus, .crear-cuenta input:focus {
+    box-shadow: 0 0 10px cyan;
+}
+
+.portal-de-acceso button, .crear-cuenta button {
+    width: 100%;
+    padding: 10px;
+    background: cyan;
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.portal-de-acceso button:hover, .crear-cuenta button:hover {
+    box-shadow: 0 0 10px cyan, 0 0 20px rgba(0, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+
+.portal-de-acceso a{
+    color: cyan;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+    transition: 0.3s;
+    font-size: 1.5rem;
+}
+
+.crear-cuenta a {
+    color: cyan;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+    transition: 0.3s;
+    font-size: 2rem;
+}
+
+
+
+.portal-de-acceso a:hover, .crear-cuenta a:hover {
+    text-shadow: 0 0 10px cyan;
+}
+
+
+
+
+
+
+/* PAGINA DE  registro de usuario*/
+.registro-container {
+    max-width: 400px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    text-align: center;
+    color: cyan;
+    box-shadow: 0 0 15px cyan;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.registro-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid cyan;
+    background: black;
+    color: white;
+    border-radius: 5px;
+}
+
+.registro-container button {
+    background: cyan;
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.registro-container a {
+    color: cyan;
+    text-decoration: none;
+}
+
+.registro-container a:hover {
+    text-decoration: underline;
+}
