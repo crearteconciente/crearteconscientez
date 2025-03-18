@@ -27,7 +27,10 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('portalDeAcceso/', views.portalDeAcceso, name='portalDeAcceso'),
     path('ayuda/', views.ayuda, name='ayuda'),
-    path('elementos/', views.ayuda, name='elementos'),
+    path('elementos/', views.elementos, name='elementos'),
     path('portalDeAcceso/registroUsuario/', views.registroUsuario, name='registroUsuario'),
-    
+    path('elemento_agua/', views.elemento_agua, name='elemento_agua'),
+    path('elemento_tierra/', views.elemento_tierra, name='elemento_tierra'),
+    path('elemento_fuego/', views.elemento_fuego, name='elemento_fuego'),
+    path('elemento_aire/', views.elemento_aire, name='elemento_aire'),
 ]
