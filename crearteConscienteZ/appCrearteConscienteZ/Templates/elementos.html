@@ -2,29 +2,35 @@
 {% load static %}
 
 {% block title %}
-   Elige tu Elemento
+✨ Forja tu Destino: Elige tu Elemento ✨
 {% endblock %}
 
 {% block content %}
+
+<p class="descripcion-elemento">Selecciona el símbolo que resuene contigo y descubre el poder de tu avatar.</p>
+
+
+
     <div class="element-selection">
         <h1>Elige tu elemento</h1>
 
         <div class="elements-container" id="elements-container">
-            <a href="{% url 'elemento_tierra' %}" class="element">
+            <a href="{% url 'elemento_tierra' %}" class="element" data-tooltip="Elemento Tierra: Estabilidad y Fortaleza">
                 <img src="{% static 'img/simboloTierra.jpg' %}" alt="Tierra" title="Tierra"> 
             </a>
-        
-            <a href="{% url 'elemento_agua' %}" class="element">
+            
+            <a href="{% url 'elemento_agua' %}" class="element" data-tooltip="Elemento Agua: Fluidez y Adaptabilidad">
                 <img src="{% static 'img/simboloAgua.jpg' %}" alt="Agua" title="Agua">
             </a>
-        
-            <a href="{% url 'elemento_fuego' %}" class="element">
+            
+            <a href="{% url 'elemento_fuego' %}" class="element" data-tooltip="Elemento Fuego: Pasión y Energía">
                 <img src="{% static 'img/simboloFuego.jpg' %}" alt="Fuego" title="Fuego">
             </a>
-        
-            <a href="{% url 'elemento_aire' %}" class="element">
+            
+            <a href="{% url 'elemento_aire' %}" class="element" data-tooltip="Elemento Aire: Libertad y Conocimiento">
                 <img src="{% static 'img/simboloAire.jpg' %}" alt="Aire" title="Aire">
             </a>
+            
         </div>
         
 {% endblock %}
