@@ -227,28 +227,34 @@ body {
 }
 
 .element::after {
-    content: attr(data-tooltip); /* Usa el atributo personalizado */
+    content: attr(data-tooltip);
     position: absolute;
-    top: 120%;; /* Ajusta la posición del tooltip */
+    bottom: -40px; /* Mueve la burbuja más abajo */
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0, 255, 255, 0.9);
+    background: rgba(0, 255, 255, 0.95);
     color: black;
-    padding: 8px 12px 20px 20px;
+    padding: 10px 30px 30px; 
     border-radius: 8px;
-    white-space: nowrap;
-    font-size: 0.9rem;
+    white-space: normal;
+    font-size: 1rem;
     font-weight: bold;
-    text-shadow: 0 0 5px cyan;
+    text-align: center;
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
     pointer-events: none;
+  
+    width: auto;
+  
 }
 
 .element:hover::after {
     opacity: 1;
     visibility: visible;
 }
+
+
 
 
 
