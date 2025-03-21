@@ -27,3 +27,7 @@ def elemento_fuego(request):
 
 def elemento_aire(request):
     return render(request, 'elemento_aire.html')
+
+
+def mision_tierra(request):
+    return render(request, 'mision_tierra.html')

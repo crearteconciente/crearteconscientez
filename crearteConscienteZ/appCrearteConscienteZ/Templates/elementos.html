@@ -2,14 +2,12 @@
 {% load static %}
 
 {% block title %}
-✨ Forja tu Destino: Elige tu Elemento ✨
+✨ Forja tu Destino ✨
 {% endblock %}
 
 {% block content %}
 
 <p class="descripcion-elemento">Selecciona el símbolo que resuene contigo y descubre el poder de tu avatar.</p>
-
-
 
     <div class="element-selection">
         <h1>Elige tu elemento</h1>
@@ -32,7 +30,38 @@
             </a>
             
         </div>
-        
+<!--************************************CAROUSEL*************************************************************************-->
+
+<div class="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <a href="{% url 'elemento_tierra' %}" class="element" data-tooltip="Tierra: Estabilidad y Fortaleza">
+                <img src="{% static 'img/avatar_femenina_tierra.jpg' %}" alt="Tierra" title="Tierra"> 
+            </a>
+        </div>
+        <div class="carousel-item">
+            <a href="{% url 'elemento_agua' %}" class="element" data-tooltip="Agua: Fluidez y Adaptabilidad">
+                <img src="{% static 'img/avatar_femenina_agua.jpg' %}" alt="Agua" title="Agua">
+            </a>
+        </div>
+        <div class="carousel-item">
+            <a href="{% url 'elemento_fuego' %}" class="element" data-tooltip="Fuego: Pasión y Energía">
+                <img src="{% static 'img/avatar_femenina_fuego.png' %}" alt="Fuego" title="Fuego">
+            </a>
+        </div>
+        <div class="carousel-item">
+            <a href="{% url 'elemento_aire' %}" class="element" data-tooltip="Aire: Libertad y Conocimiento">
+                <img src="{% static 'img/avatar_femenina_aire.jpg' %}" alt="Aire" title="Aire">
+            </a>
+        </div>
+    </div>
+
+    <!-- Botones de navegación -->
+    <button class="carousel-control prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="carousel-control next" onclick="moveSlide(1)">&#10095;</button>
+</div>
+
+       
 {% endblock %}
 
 {% block extra_js %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Elemento Tierra{% endblock %}
+
+{% block content %}
+<main class="elemento-container elemento-tierra">
+
+    <section class="contenido-horizontal">
+        <div class="avatarTierra">
+            <img src="{% static 'img/avatar_femenina_tierra.jpg' %}" alt="Avatar Tierra">
+        </div>
+
+        <section class="descripcion">
+            <h2>Elemento Tierra: Estabilidad y Fortaleza</h2>
+            <p>El elemento Tierra representa la estabilidad, la fuerza interior y la conexión con lo natural. Te invita a enraizarte, a construir desde lo firme y cultivar tu poder interior con paciencia.</p>
+        
+            <div class="acciones">
+                <a href="{% url 'mision_tierra' %}" class="btn btn-mision">Haz clic aquí para iniciar misión</a>
+                <br><br>
+                <a href="{% url 'elementos' %}" class="btn">Volver a los Elementos</a>
+            </div>
+        </section>
+        
+</main>
+
+{% endblock %}

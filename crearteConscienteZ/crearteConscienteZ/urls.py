@@ -33,4 +33,6 @@ urlpatterns = [
     path('elemento_tierra/', views.elemento_tierra, name='elemento_tierra'),
     path('elemento_fuego/', views.elemento_fuego, name='elemento_fuego'),
     path('elemento_aire/', views.elemento_aire, name='elemento_aire'),
+
+    path('mision-tierra/', views.mision_tierra, name='mision_tierra'),
 ]
